@@ -101,28 +101,34 @@ class TestGameOfLife(unittest.TestCase):
         self._assert_exactly_these_cells_are_alive_in_next_generation(initially_alive_cells)
 
     def test_glider(self):
-        self.game_of_life.set_alive_cells((        (0, 1),
-                                                           (1, 2),
-                                           (2, 0), (2, 1), (2, 2)))
+        self.game_of_life.set_alive_cells(
+            (        (0, 1),
+                             (1, 2),
+             (2, 0), (2, 1), (2, 2)))
+
         self._assert_exactly_these_cells_are_alive_in_next_generation(
-            ((1, 0),         (1, 2),
+            (
+             (1, 0),         (1, 2),
                      (2, 1), (2, 2),
                      (3, 1)))
 
         self._assert_exactly_these_cells_are_alive_in_next_generation(
-            (                (1, 2),
+            (
+                             (1, 2),
              (2, 0),         (2, 2),
                      (3, 1), (3, 2)))
 
         self._assert_exactly_these_cells_are_alive_in_next_generation(
-            (        (1, 1),
+            (
+                     (1, 1),
                              (2, 2), (2, 3),
                      (3, 1), (3, 2)))
 
         self._assert_exactly_these_cells_are_alive_in_next_generation(
-            (        (1, 2),
-                             (2, 3),
-             (3, 1), (3, 2), (3, 3)))
+            (
+                             (1, 2),
+                                     (2, 3),
+                     (3, 1), (3, 2), (3, 3)))
 
     def _assert_cells_are_dead_in_next_generation(self, cells):
         self._cells_alive = self.game_of_life.get_next_generation()
